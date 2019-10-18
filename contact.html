@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <link rel="stylesheet" href="main.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+      <header>
+          <div class="wrapper">
+            <div class="header">
+                
+              <div class="header_left">
+                  
+                <div class="class_menu"  >
+                    <ul class="menu" id="menu" >
+                      <li class="menu-item" v-for="item in menus"> <a :href="item.a">{{item.li}}</a></li>
+                    </ul>
+                </div>
+               
+              </div>
+              <div class="header_right">
+                <input type="text" v-model="query" name="query" placeholder="Поиск">
+                <button @click="handleSearchClick">Поиск</button>
+                <button class="cart-button" type="button">
+                  Корзина
+                </button>
+                <div class="btn-menu menuHidden">
+                  <ul>
+                    <li  class="list" v-for="item in basket">
+                      <h3>{{item.title}}</h3>
+                      <input class="qty" type="number" v-model="item.qty">
+                    </li>
+                  </ul>
+                    
+                  <p>Сумма заказа</p>
+                  <div class="total"> {{total}} </div>
+                </div>
+              </div>
+            </div>
+            
+             
+          </div>
+          
+        </header>
+         
+        
+         <div class="wrapper">
+           <div class="contact">
+              <form  class="form" action="#"  >
+                <label  > Ваше имя
+                  <input type="text" name="name" id="inputName"  >
+                  <div class="error" id="errorName">Имя содержит только буквы</div>
+                </label>
+                <label  > Ваш номер телефона
+                  <input type="text" name="phone"  id="inputPhone" >
+                  <div class="error" id="errorPhone" >Телефон имеет вид +7(000)000-0000</div>
+                </label>
+                <label  > Ваш эдектронный адрес
+                  <input type="text" name="email" id="inputEmail" >
+                  <div class="error" id="errorEmail">E-mail имеет вид mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru</div>
+                </label>
+                
+                <label  > Ваши коментарии 
+                  <textarea name="text"  cols="30" rows="10" id="inputText"></textarea>
+                  <div class="error" id="errorText">Текст произвольный</div>
+                </label>
+                <div class="form_btn">
+                  <button id="btn">
+                    SUBMIT
+                  </button>
+                  <div id="send">Данные отправлены</div>
+                </div>
+              </form>
+           </div>
+  
+         </div>
+         
+      
+        <footer>
+          <div class="wrapper">
+            <div class="footer_left"></div>
+            <div class="footer_right"></div>
+          </div>
+        </footer>
+  </div>
+    
+<script src="vue.js"></script>    
+  
+<script src="form.js"></script>
+ 
+</body>
+</html>
